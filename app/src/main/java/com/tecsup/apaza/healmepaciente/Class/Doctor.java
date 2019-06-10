@@ -13,15 +13,7 @@ public class Doctor {
     private Integer office_worker;
     private User user;
     private Office office;
-    private List<Images> images;
 
-    public List<Images> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Images> images) {
-        this.images = images;
-    }
 
     public Integer getId() {
         return id;

@@ -22,7 +22,7 @@
         android:paddingRight="20dp"
         app:srcCompat="@drawable/logohealme" />
 
-    <!--
+
     <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
@@ -71,20 +71,7 @@
         android:layout_marginRight="20dp"
         android:paddingStart="20dp"
         android:drawableStart="@drawable/ic_password"/>
-    -->
-    <EditText
-        android:id="@+id/loginName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:inputType="textPersonName"
-        android:textSize="32sp"
-        android:padding="10dp"
-        android:textColor="#111"
-       >
 
-        <requestFocus/>
-    </EditText>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,7 +84,7 @@
         android:textColor="#FFFFFF"
         android:fontFamily="sans-serif"
         android:textStyle="normal|bold"
-        android:layout_below="@+id/loginName"
+        android:layout_below="@+id/et_password"
         android:onClick="gomainview"
         android:text="Ingresar"/>
 

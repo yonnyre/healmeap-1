@@ -1,6 +1,7 @@
 package com.tecsup.apaza.healmepaciente.Class;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private Integer id;
@@ -15,6 +16,15 @@ public class User {
     private Date birth_date;
     private String user_type;
     private Gender gender;
+    private List<Images> images;
+
+    public List<Images> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Images> images) {
+        this.images = images;
+    }
 
     public Gender getGender() {
         return gender;

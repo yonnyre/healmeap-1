@@ -1,5 +1,6 @@
 package com.tecsup.apaza.healmepaciente;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -18,13 +19,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends BaseActivity implements SinchService.StartFailedListener{
+public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
     EditText email;
     EditText password;
-    private EditText mLoginName;
 
     //SlidingSquareLoaderView anim;
     @Override
@@ -32,12 +32,11 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mLoginName = (EditText) findViewById(R.id.loginName);
 
         //anim = (SlidingSquareLoaderView) findViewById(R.id.view);
         //anim.hide();
-        //email = (EditText) findViewById(R.id.et_email);
-       // password = (EditText) findViewById(R.id.et_password);
+        email = (EditText) findViewById(R.id.et_email);
+        password = (EditText) findViewById(R.id.et_password);
     }
 
     public void goregister(View view){
@@ -54,7 +53,7 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
                 RegisterActivity.class);
         startActivity(intent);
     }
-
+/*
     @Override
     protected void onServiceConnected() {
        getSinchServiceInterface().setStartListener(this);
@@ -70,30 +69,15 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
     public void onStarted() {
         openPlaceCallActivity();
     }
-
+*/
     ////////////////////////////////
 
     public void gomainview(View view){
 
-        String userName = mLoginName.getText().toString();
+       // String userName = "sfsdf";
 
 
-        if (userName.isEmpty()) {
-            Toast.makeText(this, "Please enter a name", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if (!userName.equals(getSinchServiceInterface().getUserName())) {
-            getSinchServiceInterface().stopClient();
-        }
 
-        if (!getSinchServiceInterface().isStarted()) {
-            getSinchServiceInterface().startClient(userName);
-        } else {
-            openPlaceCallActivity();
-        }
-
-
-        /*
         String user  = email.getText().toString();
         String pass = password.getText().toString();
 
@@ -119,8 +103,20 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
                         //Toast.makeText(LoginActivity.this, responseMessage.getMessage(), Toast.LENGTH_LONG).show();
                         //finish();
 
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
 
+                  /*
+                        if (!userName.equals(getSinchServiceInterface().getUserName())) {
+                            getSinchServiceInterface().stopClient();
+                        }
 
+                        if (!getSinchServiceInterface().isStarted()) {
+                            getSinchServiceInterface().startClient(userName);
+                        } else {
+                            openPlaceCallActivity();
+                        }
+*/
 
                     } else {
                         Log.e(TAG, "onError: " + response.errorBody().string());
@@ -143,12 +139,12 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
             }
 
         });
-*/
+
 
     }
-
+/*
     private void openPlaceCallActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }
+    }*/
 }

@@ -17,7 +17,7 @@ import retrofit2.http.Path;
 
 public interface ApiService {
 
-    String API_BASE_URL = "http://3.85.52.23";
+    String API_BASE_URL = "http://54.81.219.203";
 
     @GET("api/user")
     Call<List<User>> getUsers();

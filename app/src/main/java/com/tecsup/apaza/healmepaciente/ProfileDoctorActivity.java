@@ -5,10 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mikhaellopez.circularimageview.CircularImageView;
 import com.sinch.android.rtc.calling.Call;
+import com.squareup.picasso.Picasso;
 
 public class ProfileDoctorActivity extends  BaseActivity {
 
@@ -17,7 +20,7 @@ public class ProfileDoctorActivity extends  BaseActivity {
     private TextView emailTxt;
     private TextView phoneTxt;
     private Button mCallButton;
-
+    private CircularImageView ivImageViewFromUrl;
 
 
     @Override
@@ -36,7 +39,13 @@ public class ProfileDoctorActivity extends  BaseActivity {
         String phone = getIntent().getExtras().getString("phone");
         String images = getIntent().getExtras().getString("image");
 
-       Toast.makeText(this,images,Toast.LENGTH_LONG).show();
+
+        ivImageViewFromUrl = (CircularImageView)findViewById(R.id.iv_image_from_url);
+
+
+        String url = ApiService.API_BASE_URL + "/storage/" + images;
+        Picasso.with(getApplicationContext()).load(url).into(ivImageViewFromUrl);
+
 
         nameTxt.setText(nombr);
         emailTxt.setText(emai);
